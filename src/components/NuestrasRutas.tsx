@@ -57,18 +57,18 @@ export default function NuestrasRutas() {
             Nuestras Rutas
           </div>
           <h2 className="section-title">
-            República Dominicana: experiencias de familias como la tuya
+            Viajes por tratamientos: experiencias reales
           </h2>
           <p className="section-subtitle">
-            Cada historia es única. Acá las familias cuentan cómo viajaron a República Dominicana con sus
-            hijos con TEA: qué funcionó, qué harían distinto, qué aprendieron en el camino.
+            Cada historia es única. Acá las familias cuentan cómo viajaron con sus hijos con TEA
+            buscando tratamientos: qué funcionó, qué harían distinto, qué aprendieron en el camino.
           </p>
         </div>
 
         {/* Destacado: llamada a compartir */}
         <div className="max-w-3xl mx-auto mb-12 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-brand-500 to-aqua-600 text-white text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-3">
-            ¿Viajaste a República Dominicana con tu hijo?
+            ¿Viajaste con tu hijo buscando tratamientos?
           </h3>
           <p className="text-white/80 text-lg mb-6 max-w-lg mx-auto">
             Tu experiencia puede ayudar a otra familia que hoy está buscando respuestas.
