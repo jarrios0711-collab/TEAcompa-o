@@ -54,11 +54,11 @@ export default function Buscador() {
   });
 
   return (
-    <section id="buscador" className="py-20 md:py-28 bg-gray-50/50">
+    <section id="buscador" className="py-16 md:py-24 bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-700 text-sm font-medium mb-6">
+        <div className="text-center mb-10 reveal">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-700 text-sm font-medium mb-5">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -137,8 +137,8 @@ export default function Buscador() {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 gap-5">
-              {filtrados.map((r) => (
-                <div key={r.id} className="card">
+              {filtrados.map((r, i) => (
+                <div key={r.id} className={`card-hover reveal ${i > 1 ? "reveal-delay-1" : ""}`}>
                   <div className="flex items-start justify-between mb-2">
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${
                       r.tipo === "Guía" ? "bg-brand-50 text-brand-700" : r.tipo === "Directorio" ? "bg-aqua-50 text-aqua-700" : "bg-warm-50 text-warm-700"

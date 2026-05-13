@@ -31,6 +31,10 @@ body {
     @apply bg-white rounded-2xl shadow-md border border-gray-100 p-6 transition-all duration-300 hover:shadow-lg;
   }
 
+  .card-hover {
+    @apply card hover:-translate-y-1 hover:shadow-xl;
+  }
+
   .section-title {
     @apply text-3xl md:text-4xl font-bold text-brand-900 mb-4;
   }
@@ -41,6 +45,18 @@ body {
 
   .input-field {
     @apply w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-aqua-400 focus:ring-2 focus:ring-aqua-100 outline-none transition-all duration-200 bg-gray-50/50;
+  }
+
+  .chip {
+    @apply text-xs px-3 py-1.5 rounded-full font-medium transition-all duration-200;
+  }
+
+  .chip-active {
+    @apply chip text-white shadow-sm;
+  }
+
+  .chip-inactive {
+    @apply chip bg-white text-gray-600 border border-gray-200 hover:border-brand-300;
   }
 }
 
@@ -53,4 +69,36 @@ html {
 ::selection {
   background-color: #99f6df;
   color: #134e46;
+}
+
+/* Scroll-triggered reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Subtle pulse for stats */
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  @apply bg-gradient-to-r from-brand-500 to-aqua-500 bg-clip-text text-transparent;
 }

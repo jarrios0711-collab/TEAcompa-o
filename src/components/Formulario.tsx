@@ -45,13 +45,13 @@ export default function Formulario() {
   };
 
   return (
-    <section id="formulario" className="py-20 md:py-28 bg-gradient-to-br from-brand-900 via-brand-950 to-[#0c2a4a] relative overflow-hidden">
+    <section id="formulario" className="py-16 md:py-24 bg-gradient-to-br from-brand-900 via-brand-950 to-[#0c2a4a] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-aqua-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-400/10 rounded-full blur-3xl" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-aqua-300 text-sm font-medium mb-6 border border-white/10">
+        <div className="text-center mb-10 reveal">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-aqua-300 text-sm font-medium mb-5 border border-white/10">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
             </svg>

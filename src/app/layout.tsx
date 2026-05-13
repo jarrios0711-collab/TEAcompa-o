@@ -7,6 +7,7 @@ import "@fontsource/nunito/800.css";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "TEAcompaño - Red de Apoyo para Familias con Autismo",
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className="font-sans antialiased bg-white text-gray-800">
+        <ScrollReveal />
         <Navbar />
         <main>{children}</main>
         <Footer />
