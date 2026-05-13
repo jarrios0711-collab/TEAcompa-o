@@ -1,74 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getSupabase } from "@/lib/supabase";
 
-const recursos = [
-  {
-    titulo: "Guía de Terapia ABA en República Dominicana",
-    tipo: "Guía",
-    terapia: "Terapia ABA",
-    pais: "República Dominicana",
-    descripcion:
-      "Lista completa de centros certificados, costos aproximados y requisitos para iniciar terapia ABA en RD.",
-  },
-  {
-    titulo: "Neuropediatras en Santo Domingo",
-    tipo: "Directorio",
-    terapia: "Neuropediatría",
-    pais: "República Dominicana",
-    descripcion:
-      "Directorio de especialistas en neurología infantil con experiencia en autismo, incluyendo tiempos de espera y costos de consulta.",
-  },
-  {
-    titulo: "Centros de Integración Sensorial - Buenos Aires",
-    tipo: "Directorio",
-    terapia: "Integración Sensorial",
-    pais: "Argentina",
-    descripcion:
-      "Centros especializados en integración sensorial en CABA y Gran Buenos Aires. Incluye valores y experiencias de familias.",
-  },
-  {
-    titulo: "Requisitos de viaje para tratamientos médicos",
-    tipo: "Guía",
-    terapia: "General",
-    pais: "General",
-    descripcion:
-      "Documentación necesaria, seguros de viaje y preparativos para viajar al exterior con un niño con autismo.",
-  },
-  {
-    titulo: "Terapia del Lenguaje en Lima",
-    tipo: "Recomendación",
-    terapia: "Terapia del Lenguaje",
-    pais: "Perú",
-    descripcion:
-      "Recomendaciones de fonoaudiólogos y centros de terapia del lenguaje con experiencia en TEA en Lima Metropolitana.",
-  },
-  {
-    titulo: "Alojamiento para familias en tratamiento",
-    tipo: "Guía",
-    terapia: "General",
-    pais: "General",
-    descripcion:
-      "Tips para encontrar alojamiento adecuado cerca de centros de tratamiento: zonas tranquilas, accesibilidad y reseñas de otras familias.",
-  },
-];
+type Recurso = {
+  id: number;
+  titulo: string;
+  tipo: string;
+  terapia: string;
+  pais: string;
+  descripcion: string;
+  enlace: string;
+};
 
 const tipos = ["Todos", "Guía", "Directorio", "Recomendación"];
 const terapias = [
-  "Todas",
-  "Terapia ABA",
-  "Neuropediatría",
-  "Integración Sensorial",
-  "Terapia del Lenguaje",
-  "General",
+  "Todas", "Terapia ABA", "Neuropediatría",
+  "Integración Sensorial", "Terapia del Lenguaje", "General",
 ];
 const paises = ["Todos", "República Dominicana", "Argentina", "Perú", "General"];
 
 export default function Buscador() {
+  const [recursos, setRecursos] = useState<Recurso[]>([]);
   const [filtroTipo, setFiltroTipo] = useState("Todos");
   const [filtroTerapia, setFiltroTerapia] = useState("Todas");
   const [filtroPais, setFiltroPais] = useState("Todos");
   const [busqueda, setBusqueda] = useState("");
+  const [expanded, setExpanded] = useState<number | null>(null);
+
+  useEffect(() => {
+    cargarRecursos();
+  }, []);
+
+  const cargarRecursos = async () => {
+    const { data, error } = await getSupabase()
+      .from("recursos")
+      .select("*")
+      .order("titulo");
+    if (!error && data) setRecursos(data);
+  };
 
   const filtrados = recursos.filter((r) => {
     if (filtroTipo !== "Todos" && r.tipo !== filtroTipo) return false;
@@ -94,9 +64,7 @@ export default function Buscador() {
             </svg>
             Buscador de Recursos
           </div>
-          <h2 className="section-title">
-            Encuentra lo que necesitas
-          </h2>
+          <h2 className="section-title">Encuentra lo que necesitas</h2>
           <p className="section-subtitle">
             Filtra por tipo de terapia, país o palabra clave. Toda la información
             es verificada por nuestra comunidad.
@@ -107,12 +75,7 @@ export default function Buscador() {
         <div className="max-w-4xl mx-auto mb-10 space-y-4">
           {/* Search */}
           <div className="relative">
-            <svg
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <input
@@ -130,17 +93,10 @@ export default function Buscador() {
               <p className="text-xs text-gray-500 font-medium mb-2">Tipo</p>
               <div className="flex flex-wrap gap-2">
                 {tipos.map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => setFiltroTipo(t)}
+                  <button key={t} onClick={() => setFiltroTipo(t)}
                     className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${
-                      filtroTipo === t
-                        ? "bg-brand-700 text-white"
-                        : "bg-white text-gray-600 border border-gray-200 hover:border-brand-300"
-                    }`}
-                  >
-                    {t}
-                  </button>
+                      filtroTipo === t ? "bg-brand-700 text-white" : "bg-white text-gray-600 border border-gray-200 hover:border-brand-300"
+                    }`}>{t}</button>
                 ))}
               </div>
             </div>
@@ -148,17 +104,10 @@ export default function Buscador() {
               <p className="text-xs text-gray-500 font-medium mb-2">Terapia</p>
               <div className="flex flex-wrap gap-2">
                 {terapias.map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => setFiltroTerapia(t)}
+                  <button key={t} onClick={() => setFiltroTerapia(t)}
                     className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${
-                      filtroTerapia === t
-                        ? "bg-aqua-600 text-white"
-                        : "bg-white text-gray-600 border border-gray-200 hover:border-aqua-300"
-                    }`}
-                  >
-                    {t}
-                  </button>
+                      filtroTerapia === t ? "bg-aqua-600 text-white" : "bg-white text-gray-600 border border-gray-200 hover:border-aqua-300"
+                    }`}>{t}</button>
                 ))}
               </div>
             </div>
@@ -166,17 +115,10 @@ export default function Buscador() {
               <p className="text-xs text-gray-500 font-medium mb-2">País</p>
               <div className="flex flex-wrap gap-2">
                 {paises.map((p) => (
-                  <button
-                    key={p}
-                    onClick={() => setFiltroPais(p)}
+                  <button key={p} onClick={() => setFiltroPais(p)}
                     className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${
-                      filtroPais === p
-                        ? "bg-warm-500 text-white"
-                        : "bg-white text-gray-600 border border-gray-200 hover:border-warm-300"
-                    }`}
-                  >
-                    {p}
-                  </button>
+                      filtroPais === p ? "bg-warm-500 text-white" : "bg-white text-gray-600 border border-gray-200 hover:border-warm-300"
+                    }`}>{p}</button>
                 ))}
               </div>
             </div>
@@ -195,30 +137,27 @@ export default function Buscador() {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 gap-5">
-              {filtrados.map((r, i) => (
-                <div key={i} className="card">
+              {filtrados.map((r) => (
+                <div key={r.id} className="card">
                   <div className="flex items-start justify-between mb-2">
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${
-                      r.tipo === "Guía"
-                        ? "bg-brand-50 text-brand-700"
-                        : r.tipo === "Directorio"
-                        ? "bg-aqua-50 text-aqua-700"
-                        : "bg-warm-50 text-warm-700"
-                    }`}>
-                      {r.tipo}
-                    </span>
+                      r.tipo === "Guía" ? "bg-brand-50 text-brand-700" : r.tipo === "Directorio" ? "bg-aqua-50 text-aqua-700" : "bg-warm-50 text-warm-700"
+                    }`}>{r.tipo}</span>
                     <span className="text-xs text-gray-400">{r.pais}</span>
                   </div>
                   <h3 className="font-bold text-brand-900 mb-1">{r.titulo}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                  <p className={`text-sm text-gray-600 leading-relaxed mb-3 ${expanded !== r.id ? "line-clamp-2" : ""}`}>
                     {r.descripcion}
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full font-medium">
                       {r.terapia}
                     </span>
-                    <button className="text-xs text-aqua-600 hover:text-aqua-700 font-semibold transition-colors">
-                      Ver más →
+                    <button
+                      onClick={() => setExpanded(expanded === r.id ? null : r.id)}
+                      className="text-xs text-aqua-600 hover:text-aqua-700 font-semibold transition-colors"
+                    >
+                      {expanded === r.id ? "Ver menos →" : "Ver más →"}
                     </button>
                   </div>
                 </div>
