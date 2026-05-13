@@ -21,30 +21,27 @@ export default function Hero() {
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              Comunidad de apoyo y esperanza
+              Historias reales de familias como la tuya
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-900 leading-tight">
-              Nadie camina solo en{" "}
+              ¿Viajaste con tu hijo a{" "}
               <span className="bg-gradient-to-r from-brand-500 to-aqua-500 bg-clip-text text-transparent">
-                este viaje
+                Argentina por tratamientos?
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
-              <strong className="text-brand-700">TEAcompaño</strong> nace de la
-              convicción de que compartir experiencias, tratamientos y recursos
-              transforma el camino del autismo. No importa dónde estés o qué
-              necesites — aquí encontrarás una mano amiga, información real y
-              una comunidad que entiende.
+              <strong className="text-brand-700">TEAcompaño</strong> nació de una historia real: un papá que viajó
+              desde Venezuela a Argentina con su hijo con TEA. Su experiencia ayudó a otras familias.
+              Ahora queremos que vos cuentes la tuya.
             </p>
 
             <p className="text-base text-gray-500 leading-relaxed max-w-xl">
-              Sabemos que buscar tratamientos en el extranjero puede ser abrumador.
-              Por eso creamos este espacio: para que cada familia pueda acceder a
-              experiencias verificadas, guías paso a paso y el respaldo de quienes
-              ya recorrieron este camino. Porque cuando compartimos lo que sabemos,
-              todos avanzamos más fuerte.
+              Cada familia tiene un camino distinto. Acá no hay guías institucionales ni información
+              fría — hay personas que vivieron lo mismo que vos y quieren ayudarte. Contanos cómo
+              hiciste, qué funcionó, qué aprendiste. Tu historia puede ser justo lo que otra familia
+              necesita escuchar hoy.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
