@@ -39,7 +39,7 @@ export default function Hero() {
 
             <div className="bg-brand-50 border-l-4 border-aqua-400 p-5 rounded-r-xl">
               <p className="text-base text-brand-800 font-medium italic">
-                "Cada experiencia compartida es una luz para quien hoy busca."
+                &ldquo;Cada experiencia compartida es una luz para quien hoy busca.&rdquo;
               </p>
             </div>
 
