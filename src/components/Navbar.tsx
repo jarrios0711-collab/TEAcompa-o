@@ -18,6 +18,7 @@ const navLinks = [
   { label: "Recursos", href: "#buscador" },
   { label: "Tips", href: "#recursos-utiles" },
   { label: "Mapa", href: "#mapa" },
+  { label: "Perfiles", href: "#perfiles" },
   { label: "Únete", href: "#formulario" },
 ];
 

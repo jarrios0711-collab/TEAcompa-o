@@ -30,9 +30,8 @@ export default function Formulario() {
       interes: formData.interes,
     });
 
-    setEnviando(false);
-
     if (err) {
+      setEnviando(false);
       if (err.code === "23505") {
         setError("Este correo ya está registrado en la comunidad.");
       } else {
@@ -41,6 +40,17 @@ export default function Formulario() {
       return;
     }
 
+    // Crear perfil automáticamente
+    await getSupabase().from("perfiles").upsert({
+      nombre: formData.nombre.trim(),
+      email: formData.email.trim(),
+      avatar_color: ["brand", "aqua", "warm"][Math.floor(Math.random() * 3)],
+    }, { onConflict: "email" });
+
+    // Guardar email para identificar al usuario
+    localStorage.setItem("tea_perfil_email", formData.email.trim());
+
+    setEnviando(false);
     setEnviado(true);
   };
 

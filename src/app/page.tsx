@@ -5,6 +5,7 @@ import Buscador from "@/components/Buscador";
 import RecursosUtiles from "@/components/RecursosUtiles";
 import MapaInteractivo from "@/components/MapaInteractivo";
 import Formulario from "@/components/Formulario";
+import Perfiles from "@/components/Perfiles";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <RecursosUtiles />
       <MapaInteractivo />
       <Formulario />
+      <Perfiles />
     </>
   );
 }

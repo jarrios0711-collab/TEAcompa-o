@@ -52,6 +52,7 @@ export default function Footer() {
                 { label: "Recursos", href: "#buscador" },
                 { label: "Tips de viaje", href: "#recursos-utiles" },
                 { label: "Mapa", href: "#mapa" },
+                { label: "Perfiles", href: "#perfiles" },
                 { label: "Únete", href: "#formulario" },
               ].map((link) => (
                 <li key={link.href}>
