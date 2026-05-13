@@ -73,39 +73,84 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Illustration */}
-          <div className="hidden lg:flex justify-center items-center animate-float">
+          {/* Right: Illustration - warm family scene */}
+          <div className="hidden lg:flex justify-center items-center">
             <div className="relative w-96 h-96">
-              {/* Decorative circles */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-100/50 to-aqua-100/50 animate-pulse" style={{ animationDuration: "4s" }} />
-              <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-brand-200/40 to-aqua-200/40" />
+              {/* Soft glow background */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-100/60 via-aqua-50/30 to-transparent" />
+              <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-aqua-100/30 via-brand-50/20 to-transparent" />
 
-              {/* Center icon */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-48 h-48 rounded-full bg-white shadow-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-brand-400 to-aqua-400 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                      T
-                    </div>
-                    <p className="text-brand-900 font-bold text-lg">TEAcompaño</p>
-                    <p className="text-aqua-600 text-sm font-medium">Juntos en el camino</p>
-                  </div>
+              {/* SVG Illustration: parent and child */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400" fill="none">
+                {/* Background decorative rings */}
+                <circle cx="200" cy="200" r="180" stroke="#dbeffd" strokeWidth="1" strokeDasharray="6 6" opacity="0.6" />
+                <circle cx="200" cy="200" r="140" stroke="#ccfbef" strokeWidth="1" strokeDasharray="4 8" opacity="0.5" />
+
+                {/* Small floating hearts */}
+                <g opacity="0.4">
+                  <path d="M120 80 Q120 70 128 70 Q136 70 136 80 Q136 92 120 102 Q104 92 104 80 Q104 70 112 70 Q120 70 120 80Z" fill="#60b8f5" />
+                  <path d="M290 100 Q290 92 296 92 Q302 92 302 100 Q302 108 290 116 Q278 108 278 100 Q278 92 284 92 Q290 92 290 100Z" fill="#5eebcc" />
+                </g>
+
+                {/* Parent figure (left) */}
+                <g>
+                  {/* Head */}
+                  <circle cx="155" cy="145" r="22" stroke="#1d4c87" strokeWidth="2.5" fill="white" />
+                  {/* Body */}
+                  <path d="M133 185 Q133 168 155 168 Q177 168 177 185 L177 200 Q155 210 133 200Z" stroke="#1d4c87" strokeWidth="2.5" fill="white" />
+                  {/* Arm reaching to child */}
+                  <path d="M155 185 Q170 178 190 175" stroke="#1d4c87" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                  {/* Other arm */}
+                  <path d="M155 185 Q140 190 130 200" stroke="#1d4c87" strokeWidth="2" strokeLinecap="round" fill="none" />
+                  {/* Legs */}
+                  <path d="M140 200 L135 230" stroke="#1d4c87" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                  <path d="M170 200 L175 230" stroke="#1d4c87" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                </g>
+
+                {/* Child figure (right, smaller) */}
+                <g>
+                  {/* Head */}
+                  <circle cx="218" cy="160" r="16" stroke="#a75a26" strokeWidth="2.5" fill="white" />
+                  {/* Body */}
+                  <path d="M202 195 Q202 178 218 178 Q234 178 234 195 L234 205 Q218 212 202 205Z" stroke="#a75a26" strokeWidth="2.5" fill="white" />
+                  {/* Hand reaching to parent */}
+                  <path d="M218 190 Q205 180 193 176" stroke="#a75a26" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                  {/* Legs */}
+                  <path d="M210 205 L208 228" stroke="#a75a26" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                  <path d="M226 205 L228 228" stroke="#a75a26" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                </g>
+
+                {/* Sun/compass element (journey symbol) */}
+                <g transform="translate(310, 280)" opacity="0.6">
+                  <circle cx="0" cy="0" r="15" stroke="#14b89b" strokeWidth="1.5" fill="#ccfbef" opacity="0.5" />
+                  <path d="M0 -18 L2 -8 L0 -12 L-2 -8Z" fill="#14b89b" />
+                  <path d="M0 18 L2 8 L0 12 L-2 8Z" fill="#14b89b" />
+                  <path d="M-18 0 L-8 2 L-12 0 L-8 -2Z" fill="#14b89b" />
+                  <path d="M18 0 L8 2 L12 0 L8 -2Z" fill="#14b89b" />
+                </g>
+
+                {/* Path/road symbolizing the journey */}
+                <path d="M100 330 Q150 300 200 310 Q250 320 300 300" stroke="#93d2fa" strokeWidth="2" strokeDasharray="6 4" opacity="0.4" fill="none" />
+                <circle cx="100" cy="330" r="4" fill="#93d2fa" opacity="0.4" />
+                <circle cx="300" cy="300" r="4" fill="#5eebcc" opacity="0.4" />
+              </svg>
+
+              {/* Floating animation wrapper */}
+              <div className="absolute inset-0 animate-float" style={{ animationDuration: "6s" }}>
+                {/* Heart connecting parent and child */}
+                <div className="absolute" style={{ top: "155px", left: "178px" }}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="#e9be86" opacity="0.7">
+                    <path d="M8 14.5L2.5 9.5C0.5 7.5 1 4 3.5 3C5 2.3 6.5 3 8 4.5C9.5 3 11 2.3 12.5 3C15 4 15.5 7.5 13.5 9.5L8 14.5Z" />
+                  </svg>
                 </div>
               </div>
 
-              {/* Orbiting dots */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 w-3 h-3 rounded-full bg-brand-400 shadow-lg" />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-2 w-3 h-3 rounded-full bg-aqua-400 shadow-lg" />
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-3 h-3 rounded-full bg-brand-300 shadow-lg" />
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-3 h-3 rounded-full bg-aqua-300 shadow-lg" />
-
-              {/* Connecting lines */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 384 384">
-                <line x1="192" y1="10" x2="192" y2="100" stroke="#93d2fa" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
-                <line x1="192" y1="284" x2="192" y2="374" stroke="#5eebcc" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
-                <line x1="10" y1="192" x2="100" y2="192" stroke="#93d2fa" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
-                <line x1="284" y1="192" x2="374" y2="192" stroke="#5eebcc" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
-              </svg>
+              {/* Bottom text */}
+              <div className="absolute bottom-8 left-0 right-0 text-center">
+                <p className="text-sm text-brand-400 font-medium tracking-wide">
+                  Juntos en el camino
+                </p>
+              </div>
             </div>
           </div>
         </div>
