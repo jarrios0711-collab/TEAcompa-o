@@ -25,16 +25,17 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-900 leading-tight">
-              ¿Viajaste con tu hijo a{" "}
+              ¿Viajaste a{" "}
               <span className="bg-gradient-to-r from-brand-500 to-aqua-500 bg-clip-text text-transparent">
-                Argentina por tratamientos?
-              </span>
+                República Dominicana
+              </span>{" "}
+              por tratamientos?
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
-              <strong className="text-brand-700">TEAcompaño</strong> nació de una historia real: un papá que viajó
-              desde Venezuela a Argentina con su hijo con TEA. Su experiencia ayudó a otras familias.
-              Ahora queremos que vos cuentes la tuya.
+              <strong className="text-brand-700">TEAcompaño</strong> nació de una historia real: un papá desde Argentina
+              viajó a República Dominicana con su hijo con TEA buscando tratamientos. Su experiencia
+              hoy ayuda a otras familias. Ahora queremos que vos cuentes la tuya.
             </p>
 
             <p className="text-base text-gray-500 leading-relaxed max-w-xl">

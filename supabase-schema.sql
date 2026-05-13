@@ -52,9 +52,9 @@ CREATE TABLE IF NOT EXISTS recursos (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 5. TABLA: historias_arg
+-- 5. TABLA: historias_rd
 -- Historias de familias que viajaron a Argentina con sus hijos con TEA
-CREATE TABLE IF NOT EXISTS historias_arg (
+CREATE TABLE IF NOT EXISTS historias_rd (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   nombre TEXT NOT NULL,
   desde TEXT DEFAULT '',
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS historias_arg (
 -- Habilitar RLS en todas las tablas
 ALTER TABLE testimonios ENABLE ROW LEVEL SECURITY;
 ALTER TABLE consejos ENABLE ROW LEVEL SECURITY;
-ALTER TABLE historias_arg ENABLE ROW LEVEL SECURITY;
+ALTER TABLE historias_rd ENABLE ROW LEVEL SECURITY;
 ALTER TABLE registros ENABLE ROW LEVEL SECURITY;
 ALTER TABLE recursos ENABLE ROW LEVEL SECURITY;
 
@@ -99,12 +99,12 @@ CREATE POLICY "Inserción anónima en registros"
   ON registros FOR INSERT
   WITH CHECK (true);
 
-CREATE POLICY "Lectura pública de historias_arg"
-  ON historias_arg FOR SELECT
+CREATE POLICY "Lectura pública de historias_rd"
+  ON historias_rd FOR SELECT
   USING (true);
 
-CREATE POLICY "Inserción anónima en historias_arg"
-  ON historias_arg FOR INSERT
+CREATE POLICY "Inserción anónima en historias_rd"
+  ON historias_rd FOR INSERT
   WITH CHECK (true);
 
 -- ============================================================
