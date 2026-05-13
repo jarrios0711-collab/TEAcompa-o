@@ -25,11 +25,10 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-900 leading-tight">
-              ¿Viajaste a{" "}
+              Nadie camina solo en{" "}
               <span className="bg-gradient-to-r from-brand-500 to-aqua-500 bg-clip-text text-transparent">
-                República Dominicana
-              </span>{" "}
-              por tratamientos?
+                este viaje
+              </span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
@@ -37,6 +36,12 @@ export default function Hero() {
               viajó a República Dominicana con su hijo con TEA buscando tratamientos. Su experiencia
               hoy ayuda a otras familias. Ahora queremos que vos cuentes la tuya.
             </p>
+
+            <div className="bg-brand-50 border-l-4 border-aqua-400 p-5 rounded-r-xl">
+              <p className="text-base text-brand-800 font-medium italic">
+                "Cada experiencia compartida es una luz para quien hoy busca."
+              </p>
+            </div>
 
             <p className="text-base text-gray-500 leading-relaxed max-w-xl">
               Cada familia tiene un camino distinto. Acá no hay guías institucionales ni información
