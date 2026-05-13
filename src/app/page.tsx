@@ -2,6 +2,8 @@ import Hero from "@/components/Hero";
 import NuestrasRutas from "@/components/NuestrasRutas";
 import Comunidad from "@/components/Comunidad";
 import Buscador from "@/components/Buscador";
+import RecursosUtiles from "@/components/RecursosUtiles";
+import MapaInteractivo from "@/components/MapaInteractivo";
 import Formulario from "@/components/Formulario";
 
 export default function Home() {
@@ -11,6 +13,8 @@ export default function Home() {
       <NuestrasRutas />
       <Comunidad />
       <Buscador />
+      <RecursosUtiles />
+      <MapaInteractivo />
       <Formulario />
     </>
   );

@@ -47,9 +47,11 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Inicio", href: "#hero" },
-                { label: "Nuestras Rutas", href: "#rutas" },
+                { label: "Rutas", href: "#rutas" },
                 { label: "Comunidad", href: "#comunidad" },
                 { label: "Recursos", href: "#buscador" },
+                { label: "Tips de viaje", href: "#recursos-utiles" },
+                { label: "Mapa", href: "#mapa" },
                 { label: "Únete", href: "#formulario" },
               ].map((link) => (
                 <li key={link.href}>

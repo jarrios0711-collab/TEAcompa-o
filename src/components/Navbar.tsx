@@ -13,9 +13,11 @@ type Notificacion = {
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
-  { label: "Nuestras Rutas", href: "#rutas" },
+  { label: "Rutas", href: "#rutas" },
   { label: "Comunidad", href: "#comunidad" },
   { label: "Recursos", href: "#buscador" },
+  { label: "Tips", href: "#recursos-utiles" },
+  { label: "Mapa", href: "#mapa" },
   { label: "Únete", href: "#formulario" },
 ];
 
