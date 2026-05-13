@@ -102,6 +102,14 @@ export default function Comunidad() {
       mensaje: respMensaje.trim(),
     });
     if (error) { alert("Error al responder."); return; }
+
+    // Crear notificacion
+    await getSupabase().from("notificaciones").insert({
+      testimonio_id: testimonioId,
+      de_nombre: respNombre.trim(),
+      mensaje: respMensaje.trim().substring(0, 100),
+    });
+
     setRespNombre(""); setRespMensaje(""); setRespondiendoId(null);
     cargarRespuestas(testimonioId);
   };
